@@ -28,6 +28,8 @@ public class GAnchor implements Serializable {
 		af = new AffineTransform();
 		theta = 0;
 		
+		
+		
 		for(int i=0; i < EPointerState.values().length-1; i++) {
 			Point p = getPosition(boundingRect, EPointerState.values()[i]);
 			Ellipse2D.Double ellipse = new Ellipse2D.Double(p.x, p.y, aWidth, aHeight);
