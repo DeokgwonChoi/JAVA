@@ -42,7 +42,7 @@ public class GGroup extends GRectangle {
 		}
 	}
 	
-	
+	\
 	
 	public void setSelected(boolean selected) {
 		this.selected = selected;
