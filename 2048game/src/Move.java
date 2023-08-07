@@ -27,6 +27,30 @@ public class Move {
 				data[3][i] = 0;
 			}
 		}
+		for(int i=0; i<4; i++) {
+			if(data[1][i] == data[2][i] ) {
+				data[1][i] = data[1][i] + data[2][i];
+				data[2][i] = data[3][i];
+			}
+		}
+		for(int i=0; i<4; i++) {
+			if(data[1][i] == 0 ) {
+				data[1][i] = data[2][i];
+				data[2][i] = 0;
+			}
+		}
+		for(int i=0; i<4; i++) {
+			if(data[0][i] == data[1][i] ) {
+				data[0][i] = data[0][i] + data[1][i];
+				data[1][i] = data[2][i];
+			}
+		}
+		for(int i=0; i<4; i++) {
+			if(data[0][i] == 0 ) {
+				data[0][i] = data[1][i];
+				data[1][i] = 0;
+			}
+		}
 		randomAdd();
 	}
 	public void down() {
