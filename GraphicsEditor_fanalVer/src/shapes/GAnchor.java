@@ -100,7 +100,6 @@ public class GAnchor implements Serializable {
 	
 	public void rotate(double theta, Point2D.Double origin) {
 		Shape shape;
-
 		for(int i = 0; i < EPointerState.values().length - 1; i++) {
 			shape = anchors.get(i);
 			af.setToRotation(theta, origin.x, origin.y);
