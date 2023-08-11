@@ -14,15 +14,18 @@ public class Move {
     	}
 	}
 	public void up() {
-
-		for(int i=0; i<4; i++) {
-			if(data[2][i] == data[3][i] ) {
-				data[2][i] = data[2][i] + data[3][i];
-				data[3][i] = 0;
+		for(int p = 0; p<3; p++) {
+			for(int i=0; i<4; i++) {
+				if(data[2-p][i] == 0 ) {
+					data[2-p][i] = data[3-p][i];
+					data[3-p][i] = 0;
+				}
 			}
 		}
 		for(int i=0; i<4; i++) {
-			if(data[2][i] == 0 ) {
+			if(data[0][i] == data[1][i] ) {
+				data[0][i] = data[0][i] + data[1][i];
+				data[1][i] = data[2][i];
 				data[2][i] = data[3][i];
 				data[3][i] = 0;
 			}
@@ -31,74 +34,113 @@ public class Move {
 			if(data[1][i] == data[2][i] ) {
 				data[1][i] = data[1][i] + data[2][i];
 				data[2][i] = data[3][i];
+				data[3][i] = 0;
 			}
 		}
 		for(int i=0; i<4; i++) {
-			if(data[1][i] == 0 ) {
-				data[1][i] = data[2][i];
-				data[2][i] = 0;
+			if(data[2][i] == data[3][i] ) {
+				data[2][i] = data[2][i] + data[3][i];
+				data[3][i] = 0;
 			}
-		}
-		for(int i=0; i<4; i++) {
-			if(data[0][i] == data[1][i] ) {
-				data[0][i] = data[0][i] + data[1][i];
-				data[1][i] = data[2][i];
-			}
-		}
-		for(int i=0; i<4; i++) {
-			if(data[0][i] == 0 ) {
-				data[0][i] = data[1][i];
-				data[1][i] = 0;
-			}
-		}
+		}			
 		randomAdd();
 	}
 	public void down() {
-
+		for(int p = 0; p<3; p++) {
+			for(int i=0; i<4; i++) {
+				if(data[p+1][i] == 0 ) {
+					data[p+1][i] = data[p][i];
+					data[p][i] = 0;
+				}
+			}
+		}
+		for(int i=0; i<4; i++) {
+			if(data[3][i] == data[2][i] ) {
+				data[3][i] = data[3][i] + data[2][i];
+				data[2][i] = data[1][i];
+				data[1][i] = data[0][i];
+				data[0][i] = 0;
+			}
+		}
+		for(int i=0; i<4; i++) {
+			if(data[2][i] == data[1][i] ) {
+				data[2][i] = data[2][i] + data[1][i];
+				data[1][i] = data[0][i];
+				data[0][i] = 0;
+			}
+		}
 		for(int i=0; i<4; i++) {
 			if(data[1][i] == data[0][i] ) {
 				data[1][i] = data[1][i] + data[0][i];
 				data[0][i] = 0;
 			}
-		}
-		for(int i=0; i<4; i++) {
-			if(data[1][i] == 0 ) {
-				data[1][i] = data[0][i];
-				data[0][i] = 0;
-			}
-		}
+		}			
 		randomAdd();
 	}
 	public void left() {
 
+		for(int p = 0; p<3; p++) {
+			for(int i=0; i<4; i++) {
+				if(data[i][2-p] == 0 ) {
+					data[i][2-p] = data[i][3-p];
+					data[i][3-p] = 0;
+				}
+			}
+		}
+		for(int i=0; i<4; i++) {
+			if(data[i][0] == data[i][1] ) {
+				data[i][0] = data[i][0] + data[i][1];
+				data[i][1] = data[i][2];
+				data[i][2] = data[i][3];
+				data[i][3] = 0;
+			}
+		}
+		for(int i=0; i<4; i++) {
+			if(data[i][1] == data[i][2] ) {
+				data[i][1] = data[i][1] + data[i][2];
+				data[i][2] = data[i][3];
+				data[i][3] = 0;
+			}
+		}
 		for(int i=0; i<4; i++) {
 			if(data[i][2] == data[i][3] ) {
 				data[i][2] = data[i][2] + data[i][3];
 				data[i][3] = 0;
 			}
-		}
-		for(int i=0; i<4; i++) {
-			if(data[i][2] == 0 ) {
-				data[i][2] = data[i][3];
-				data[i][3] = 0;
-			}
-		}
+		}			
 		randomAdd();
 	}
 	public void right() {
 
+		for(int p = 0; p<3; p++) {
+			for(int i=0; i<4; i++) {
+				if(data[i][p+1] == 0 ) {
+					data[i][p+1] = data[i][p];
+					data[i][p] = 0;
+				}
+			}
+		}
+		for(int i=0; i<4; i++) {
+			if(data[i][3] == data[i][2] ) {
+				data[i][3] = data[i][3] + data[i][2];
+				data[i][2] = data[i][1];
+				data[i][1] = data[i][0];
+				data[i][0] = 0;
+			}
+		}
+		for(int i=0; i<4; i++) {
+			if(data[i][2] == data[i][1] ) {
+				data[i][2] = data[i][2] + data[i][1];
+				data[i][1] = data[i][0];
+				data[i][0] = 0;
+			}
+		}
 		for(int i=0; i<4; i++) {
 			if(data[i][1] == data[i][0] ) {
 				data[i][1] = data[i][1] + data[i][0];
 				data[i][0] = 0;
 			}
-		}
-		for(int i=0; i<4; i++) {
-			if(data[i][1] == 0 ) {
-				data[i][1] = data[i][0];
-				data[i][0] = 0;
-			}
-		}
+		}			
 		randomAdd();
 	}
 	public int randomAdd(){

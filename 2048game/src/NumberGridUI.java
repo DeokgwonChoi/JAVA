@@ -33,10 +33,10 @@ public class NumberGridUI extends JFrame {
         setLayout(new BorderLayout());
 
         // 동, 서, 남, 북에 버튼 추가
-        JButton eastButton = new JButton("EAST");
-        JButton westButton = new JButton("WEST");
-        JButton southButton = new JButton("SOUTH");
-        JButton northButton = new JButton("NORTH");
+        JButton eastButton = new JButton(">>");
+        JButton westButton = new JButton("<<");
+        JButton southButton = new JButton("∨∨");
+        JButton northButton = new JButton("∧∧");
 
         add(eastButton, BorderLayout.EAST);
         add(westButton, BorderLayout.WEST);
@@ -91,8 +91,44 @@ public class NumberGridUI extends JFrame {
     	for(int i = 0; i<4; i++) {
     		for(int j=0; j<4; j++) {
     			numberButtons[i][j].setText(move.getValue(i,j));
+    			numberButtons[i][j].setBackground(getColor(move.getValue(i,j)));
     		}
     	}    	 
     }
-    
+	private Color getColor(String value) {
+		if(value.equals("2")){
+			return new Color(255,255,255);
+		}else if(value.equals("4")) {
+			return new Color(255,255,200);
+		}
+		else if(value.equals("8")) {
+			return new Color(255,255,150);
+		}
+		else if(value.equals("16")) {
+			return new Color(255,255,120);
+		}
+		else if(value.equals("32")) {
+			return new Color(255,255,100);
+		}
+		else if(value.equals("64")) {
+			return new Color(255,200,100);
+		}
+		else if(value.equals("128")) {
+			return new Color(255,150,100);
+		}
+		else if(value.equals("256")) {
+			return new Color(255,120,100);
+		}
+		else if(value.equals("512")) {
+			return new Color(255,100,100);
+		}
+		else if(value.equals("1024")) {
+			return new Color(200,100,100);
+		}
+		else if(value.equals("2048")) {
+			return new Color(150,100,100);
+		}
+		
+		return null;	
+	}  
 }
