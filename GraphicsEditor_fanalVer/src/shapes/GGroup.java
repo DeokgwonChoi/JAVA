@@ -40,9 +40,7 @@ public class GGroup extends GRectangle {
 				anchor.draw(g);
 			}
 		}
-	}
-	
-	\
+	}	
 	
 	public void setSelected(boolean selected) {
 		this.selected = selected;
